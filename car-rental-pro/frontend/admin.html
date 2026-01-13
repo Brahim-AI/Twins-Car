@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Panel | TwinsCars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Orbitron:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons - Using direct stylesheet -->
+    <link rel="icon" href="assets/titlelogo.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        /* Material Icons Round - Force correct rendering */
+        .material-icons-round {
+            font-family: 'Material Icons Round', 'Material Icons', sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-body">
+    <div class="cyber-bg">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <!-- Login -->
+    <div class="admin-login-overlay" id="loginOverlay">
+        <div class="login-container glass-panel">
+            <div class="login-header">
+                <span class="material-icons-round">admin_panel_settings</span>
+                <h1>Admin Panel</h1>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="cyber-input" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="cyber-input" id="loginPassword" required>
+                </div>
+                <div class="form-error hidden" id="loginError">Invalid credentials</div>
+                <button type="submit" class="cyber-btn cyber-btn-primary cyber-btn-full">Login</button>
+            </form>
+            <a href="index.html" class="back-link">Back to Website</a>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="admin-dashboard hidden" id="adminDashboard">
+        <aside class="admin-sidebar glass-panel">
+            <div class="sidebar-header">
+                <span class="logo-icon"><img src="assets/logonobg.png"></span>
+                <span>TwinsCars</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-page="dashboard">
+                    <span class="material-icons-round">dashboard</span> Dashboard
+                </a>
+                <a href="#" class="sidebar-link" data-page="cars">
+                    <span class="material-icons-round">directions_car</span> Cars
+                </a>
+                <a href="#" class="sidebar-link" data-page="add-car">
+                    <span class="material-icons-round">add_circle</span> Add Car
+                </a>
+            </nav>
+            <button class="cyber-btn cyber-btn-ghost" id="logoutBtn">
+                <span class="material-icons-round">logout</span> Logout
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header glass-panel">
+                <div class="admin-header-left">
+                    <button class="admin-menu-toggle" id="adminMenuToggle">
+                        <span class="material-icons-round">menu</span>
+                    </button>
+                    <h2 id="pageTitle">Dashboard</h2>
+                </div>
+                <div class="admin-profile">
+                    <span class="material-icons-round">account_circle</span> Admin
+                </div>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <section class="admin-page active" id="page-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel">
+                        <span class="material-icons-round">directions_car</span>
+                        <div><span id="statTotal">0</span>
+                            <p>Total Cars</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <span class="material-icons-round">check_circle</span>
+                        <div><span id="statAvailable">0</span>
+                            <p>Available</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <span class="material-icons-round">pending</span>
+                        <div><span id="statRented">0</span>
+                            <p>Rented</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cars List -->
+            <section class="admin-page" id="page-cars">
+                <div class="admin-table-container glass-panel">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Add Car Form -->
+            <section class="admin-page" id="page-add-car">
+                <form class="car-form glass-panel" id="carForm">
+                    <input type="hidden" id="carId">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Brand *</label>
+                            <select class="cyber-select" id="carBrand" required>
+                                <option value="">Select</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="bmw">BMW</option>
+                                <option value="audi">Audi</option>
+                                <option value="toyota">Toyota</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Model *</label>
+                            <input type="text" class="cyber-input" id="carModel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Year *</label>
+                            <input type="number" class="cyber-input" id="carYear" min="2018" max="2025" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price/Day *</label>
+                            <input type="number" class="cyber-input" id="carPrice" min="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fuel Type</label>
+                            <select class="cyber-select" id="carFuel">
+                                <option value="petrol">Petrol</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="electric">Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Transmission</label>
+                            <select class="cyber-select" id="carTransmission">
+                                <option value="automatic">Automatic</option>
+                                <option value="manual">Manual</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="upload-zone" id="uploadZone">
+                        <span class="material-icons-round">cloud_upload</span>
+                        <p>Drag images or click to upload</p>
+                        <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                    </div>
+                    <div id="imagePreview"></div>
+                    <div class="form-actions">
+                        <button type="button" class="cyber-btn cyber-btn-ghost" id="cancelForm">Cancel</button>
+                        <button type="submit" class="cyber-btn cyber-btn-primary">Save</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car Rental Pro - Best luxury car rental service at competitive prices">
+    <meta name="keywords" content="car rental, rent car, location voiture, luxury cars">
+    <title>Twins Cars</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/titlelogo.png" type="image/png" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Cyber Background Effects -->
+    <div class="cyber-bg">
+        <div class="cyber-grid"></div>
+        <div class="cyber-glow cyber-glow-1"></div>
+        <div class="cyber-glow cyber-glow-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <a href="#cars" class="nav-logo">
+                <span class="logo-icon"><img src="assets/logonobg.png"></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#cars" class="nav-link active" data-lang-key="nav-cars">Cars</a>
+                <a href="about.html" class="nav-link" data-lang-key="nav-about">About Us</a>
+                <a href="contact.html" class="nav-link" data-lang-key="nav-contact">Contact Us</a>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-current" id="langCurrentBtn">
+                    <img class="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="EN">
+                    <span class="lang-code">EN</span>
+                    <span class="material-icons-round lang-arrow">expand_more</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option active" data-lang="en">
+                        <img class="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="lang-option" data-lang="fr">
+                        <img class="lang-flag" src="https://flagcdn.com/w40/fr.png" alt="Français">
+                        <span class="lang-name">Français</span>
+                    </button>
+                    <button class="lang-option" data-lang="ar">
+                        <img class="lang-flag" src="https://flagcdn.com/w40/ma.png" alt="العربية">
+                        <span class="lang-name">العربية</span>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" data-lang-key="hero-title">
+                <span class="title-line" data-lang-key="hero-title-line1">Discover</span>
+                <span class="title-line title-highlight" data-lang-key="hero-title-line2">the Finest Cars</span>
+                <span class="title-line" data-lang-key="hero-title-line3">for Rent</span>
+            </h1>
+            <p class="hero-subtitle" data-lang-key="hero-subtitle">
+                Enjoy an exceptional driving experience with the latest luxury car models
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="totalCars">50+</span>
+                    <span class="stat-label" data-lang-key="stat-cars">Available Cars</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label" data-lang-key="stat-service">Customer Service</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label" data-lang-key="stat-satisfaction">Customer Satisfaction</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-car-image"></div>
+        </div>
+    </header> -->
+
+    <!-- Filter Section -->
+    <section class="filter-section" id="cars">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-lang-key="filter-title">
+                    <span class="material-icons-round">filter_list</span>
+                    Find Your Perfect Car
+                </h2>
+            </div>
+
+            <div class="filter-panel glass-panel">
+                <div class="filter-grid">
+                    <!-- Brand Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" data-lang-key="filter-brand">
+                            <span class="material-icons-round">directions_car</span>
+                            Brand
+                        </label>
+                        <select class="cyber-select" id="filterBrand">
+                            <option value="" data-lang-key="option-all-brands">All Brands</option>
+                            <option value="mercedes">Mercedes-Benz</option>
+                            <option value="bmw">BMW</option>
+                            <option value="audi">Audi</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                            <option value="ford">Ford</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="nissan">Nissan</option>
+                            <option value="hyundai">Hyundai</option>
+                            <option value="kia">Kia</option>
+                        </select>
+                    </div>
+
+                    <!-- Fuel Type Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" data-lang-key="filter-fuel">
+                            <span class="material-icons-round">local_gas_station</span>
+                            Fuel Type
+                        </label>
+                        <select class="cyber-select" id="filterFuel">
+                            <option value="" data-lang-key="option-all-types">All Types</option>
+                            <option value="petrol" data-lang-key="option-petrol">Petrol</option>
+                            <option value="diesel" data-lang-key="option-diesel">Diesel</option>
+                            <option value="electric" data-lang-key="option-electric">Electric</option>
+                            <option value="hybrid" data-lang-key="option-hybrid">Hybrid</option>
+                        </select>
+                    </div>
+
+                    <!-- Transmission Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" data-lang-key="filter-transmission">
+                            <span class="material-icons-round">settings</span>
+                            Transmission
+                        </label>
+                        <select class="cyber-select" id="filterTransmission">
+                            <option value="" data-lang-key="option-all">All</option>
+                            <option value="automatic" data-lang-key="option-automatic">Automatic</option>
+                            <option value="manual" data-lang-key="option-manual">Manual</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" data-lang-key="filter-price">
+                            <span class="material-icons-round">payments</span>
+                            Price (DH/day)
+                        </label>
+                        <div class="price-range-container">
+                            <input type="range" class="cyber-range" id="filterPrice" min="300" max="5000" step="100"
+                                value="5000">
+                            <div class="price-display">
+                                <span>300 DH</span>
+                                <span id="priceValue">5000 DH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" data-lang-key="filter-year">
+                            <span class="material-icons-round">calendar_today</span>
+                            Year
+                        </label>
+                        <select class="cyber-select" id="filterYear">
+                            <option value="" data-lang-key="option-all-years">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="filter-group filter-actions">
+                        <button class="cyber-btn cyber-btn-primary cyber-btn-lg" id="searchBtn"
+                            data-lang-key="btn-search">
+                            <span class="material-icons-round">search</span>
+                            <span>Search</span>
+                        </button>
+                        <button class="cyber-btn cyber-btn-ghost" id="resetBtn" data-lang-key="btn-reset">
+                            <span class="material-icons-round">refresh</span>
+                            <span>Reset</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Grid Section -->
+    <section class="cars-section">
+        <div class="container">
+            <div class="cars-header">
+                <h2 class="section-title" data-lang-key="cars-title">
+                    <span class="material-icons-round">auto_awesome</span>
+                    Available Cars
+                </h2>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-container" id="loadingState">
+                <div class="cyber-loader">
+                    <div class="loader-ring"></div>
+                    <div class="loader-ring"></div>
+                    <div class="loader-ring"></div>
+                </div>
+                <p data-lang-key="loading-text">Loading cars...</p>
+            </div>
+
+            <!-- Cars Grid -->
+            <div class="cars-grid" id="carsGrid">
+                <!-- Cars will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state hidden" id="emptyState">
+                <span class="material-icons-round">search_off</span>
+                <h3 data-lang-key="empty-title">No cars available</h3>
+                <p data-lang-key="empty-text">Try changing your search criteria</p>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="cyber-btn cyber-btn-outline cyber-btn-lg" id="loadMoreBtn" data-lang-key="load-more">
+                    <span class="material-icons-round">expand_more</span>
+                    <span>Load More</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Details Modal -->
+    <div class="cyber-modal" id="carModal">
+        <div class="modal-overlay"></div>
+        <!-- <div class="modal-content glass-panel">
+        <button class="modal-close" id="modalClose">
+            <span class="material-icons-round">close</span>
+        </button>
+
+        <div class="modal-body" id="modalBody"> -->
+        <!-- Car details will be dynamically inserted here -->
+    </div>
+    </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/212600000000" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <img src="assets/logonobg.png" alt="Twins Cars" class="footer-logo-img">
+                    </a>
+                    <p data-lang-key="footer-desc">Best luxury car rental service in Morocco</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-lang-key="footer-quick-links">Quick Links</h4>
+                    <a href="#cars" data-lang-key="footer-cars">Cars</a>
+                    <a href="about.html" data-lang-key="footer-about">About Us</a>
+                    <a href="contact.html" data-lang-key="footer-contact">Contact Us</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 data-lang-key="footer-contact-us">Contact Us</h4>
+                    <p><span class="material-icons-round">phone</span> +212 600 000 000</p>
+                    <p><span class="material-icons-round">email</span> info@carrentalpro.ma</p>
+                    <p><span class="material-icons-round">location_on</span> Casablanca, Morocco</p>
+                </div>
+
+                <div class="footer-social">
+                    <h4 data-lang-key="footer-follow">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+
+                        </a>
+                        <a href="https://tiktok.com" class="social-link" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 TwinsCars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
